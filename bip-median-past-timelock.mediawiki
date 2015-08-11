@@ -10,10 +10,10 @@
 
 ==Abstract==
 
-This BIP is a proposal to redefine the semantics used to determine a time-
-locked transactions eligibilty for inclusion in a block. The proposal is 
-to use a blocks MedianTimePast instead of the included timestamp, ensuring 
-that it increases monotonically with each block. 
+This BIP is a proposal to redefine the semantics used to determine a time-locked 
+transactions eligibilty for inclusion in a block. The proposal is to use a 
+blocks MedianTimePast instead of the included timestamp, ensuring that it 
+increases monotonically with each block. 
 
 ==Motivation==
 
@@ -23,14 +23,14 @@ network rule ensuring that block timestamps come in chronological order,
 directly using this can lead to transactions being incorrectly excluded, when 
 they ought to be valid. 
 
-Instead of this, this BIP proposes comparing the locktime against the 
-MedianTimePast over the last 11 blocks, rather than the time included in the 
-block. The benefit is this figure is derived via consensus, and guaranteed to 
-monotonically advance. 
+This BIP proposes comparing the locktime against the MedianTimePast over the 
+last 11 blocks, rather than the time included in the block. The benefit is 
+this figure is derived via consensus, and guaranteed to monotonically advance. 
 
-With the advent of proposals like BIP65 <ref>[https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki BIP65: OP_CHECKLOCKTIMEVERIFY]</ref>, OP_CHECKSEQUENCEVERIFY <ref>[https://github.com/bitcoin/bips/blob/master/bip-00xx.mediawiki BIPXX: OP_CHECKSEQUENCEVERIFY]</ref>, and BIP68 <ref>[https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki BIP68: Consensus enforced transaction replacement signaled via sequence numbers]</ref> , this proposal seeks to ensure reliable behaviour in locktime calculations.
+This proposal seeks to ensure reliable behaviour in locktime calculations as 
+required by BIP65 [1], OP_CHECKSEQUENCEVERIFY [2], and BIP68 [3].
 
-==Detailed Specification==
+==Specification==
 
 The values for transaction locktime remain unchanged. The difference is only in 
 the calculation determining whether a transaction can be included. Instead of 
@@ -127,9 +127,8 @@ when 950 out of the 1000 blocks preceding a block do have nVersion = 4,
 nVersion = 3 blocks become invalid, and all further blocks enforce the new rules.
 
 It is recommended that this soft-fork deployment trigger include other related 
-proposals for improving Bitcoin's lock-time capabilities, such as [https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki BIP 65]: OP_CHECKLOCKTIMEVERIFY, 
-[https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki BIP 68]: Consensus-enforced transaction replacement signalled via sequence numbers, and
-[https://github.com/bitcoin/bips/blob/master/bip-00XX.mediawiki BIP XX]: OP_CHECKSEQUENCEVERIFY
+proposals for improving Bitcoin's lock-time capabilities, such as BIP 65, BIP68
+and OP_CHECKSEQUENCEVERIFY.
 
 
 ==Compatibility==
@@ -137,7 +136,9 @@ proposals for improving Bitcoin's lock-time capabilities, such as [https://githu
 
 
 ==References==
-<references>
+[https://github.com/bitcoin/bips/blob/master/bip-00.mediawiki BIP65: OP_CHECKLOCKTIMEVERIFY]
+[https://github.com/bitcoin/bips/blob/master/bip-00.mediawiki BIP68: Consensus-enforced transaction replacement signaled via sequence numbers]
+[https://github.com/bitcoin/bips/blob/master/bip-00.mediawiki BIP65: OP_CHECKSEQUENCEVERIFY]
 
 ==Copyright==
 
