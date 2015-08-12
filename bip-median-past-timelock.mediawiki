@@ -133,7 +133,7 @@ and OP_CHECKSEQUENCEVERIFY.
 
 ==Compatibility==
 
-
+This BIP is not known to introduce any compatibility concerns.
 
 ==References==
 [https://github.com/bitcoin/bips/blob/master/bip-00.mediawiki BIP65: OP_CHECKLOCKTIMEVERIFY]
