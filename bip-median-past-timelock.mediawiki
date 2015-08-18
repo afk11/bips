@@ -90,7 +90,7 @@ and CHECKSEQUENCEVERIFY.
 Mark Friedenbach for designing and authoring the reference
 implementation of this BIP.
 
-Thomas Kerin authored ths BIP document.
+Thomas Kerin authored this BIP document.
 
 
 ==Compatibility==
