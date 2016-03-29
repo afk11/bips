@@ -133,7 +133,8 @@ The '0' in scriptPubKey indicates the following push is a version 0 witness prog
 
 The signature is verified as
 
-    <signature> <pubkey> CHECKSIG
+    <signature> <pubkey> DUP HASH160 <20-byte-hash> EQUALVERIFY CHECKSIG
+
 
 Comparing with a traditional P2PKH output, the P2WPKH equivalent occupies 3 less bytes in the scriptPubKey, and moves the signature and public key from scriptSig to witness.
 
